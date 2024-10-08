@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Piano-project</title>
+        <!-- link css -->
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+        <!-- link font awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <h1 class="piano__heading">Bài hát: W/n - 3107 3</h1>
+        <div class="piano__blog">
+            <div class="piano">
+                <div class="piano__note">
+                    <audio data-note="B4" src="./assets/piano/51.mp3"></audio>
+                </div>
+                <div class="piano__note blog active">
+                    <audio data-note="C5" src="./assets/piano/52.mp3"></audio>
+                </div>
+                <div class="piano__note">
+                    <audio data-note="C#5" src="./assets/piano/53.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="D5" src="./assets/piano/54.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="D#5" src="./assets/piano/55.mp3"></audio>
+                </div>
+                <div class="piano__note">
+                    <audio data-note="E5" src="./assets/piano/56.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="F5" src="./assets/piano/57.mp3"></audio>
+                </div>
+                <div class="piano__note">
+                    <audio data-note="F#5" src="./assets/piano/58.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="G5" src="./assets/piano/59.mp3"></audio>
+                </div>
+                <div class="piano__note">
+                    <audio data-note="G#5" src="./assets/piano/60.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="A5" src="./assets/piano/61.mp3"></audio>
+                </div>
+                <div class="piano__note blog">
+                    <audio data-note="A#5" src="./assets/piano/62.mp3"></audio>
+                </div>
+                <div class="piano__note">
+                    <audio data-note="B5" src="./assets/piano/63.mp3"></audio>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn__note">Start</button>
+        <script>
+            function playNote(note) {
+                const audio = document.querySelector(
+                    `audio[data-note="${note}"]`
+                );
+                const noteAudio = audio.parentNode;
+                noteAudio.classList.add("active");
+                noteAudio.style.transform = "scale(0.9)";
+                audio.currentTime = 0;
+                audio.play();
+            }
+            function playSong(song, delays) {
+                for (let i = 0; i < song.length; i++) {
+                    setTimeout(() => {
+                        document.querySelector(
+                            ".piano__note.active"
+                        ).style.transform = "scale(1)";
+                        document
+                            .querySelector(".piano__note.active")
+                            .classList.remove("active");
+                        playNote(song[i]);
+                        console.log(song[i]);
+                    }, delays[i]);
+                }
+            }
+            const btnSong = document.querySelector(".btn__note");
+            btnSong.addEventListener("click", () => {
+                playSong(song, delays);
+            });
+            const song = [
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "A5",
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "G5",
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "F5",
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "D5",
+                "C5",
+                "F5",
+                "E5",
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "A5",
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "G5",
+                "C5",
+                "B4",
+                "C5",
+                "D5",
+                "C5",
+                "F5",
+                "F5",
+                "E5",
+                "F5",
+                "E5",
+                "D5",
+                "C5",
+                "D5",
+                "C5",
+            ];
+            const delays = [
+                0, 350, 900, 1200, 1700, 2433, 4266, 4550, 5000, 5300, 5800,
+                6600, 8533, 8866, 9350, 9650, 10150, 10666, 11733, 12466, 12733,
+                13150, 13450, 13900, 14433, 15233, 16600, 16900, 17500, 17800,
+                18300, 19033, 20500, 20833, 21266, 21600, 22133, 22933, 24466,
+                24766, 25266, 25533, 26066, 26866, 27766, 28553, 28800, 29300,
+                29550, 30000, 30750, 31550,
+            ];
+        </script>
+    </body>
+</html>

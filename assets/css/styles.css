@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    font-family: "Poppins", sans-serif;
+}
+
+.piano__heading {
+    position: absolute;
+    top: 0;
+}
+
+.piano__blog {
+    width: 1100px;
+}
+
+.piano {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #000;
+    display: flex;
+    background-color: #333;
+    gap: 5px;
+}
+
+.piano__note {
+    flex: 1;
+    width: 100px;
+    background-color: #fff;
+    height: 250px;
+}
+
+.piano__note.blog::before {
+    position: absolute;
+    content: "";
+    width: 45px;
+    height: 150px;
+    background: #000;
+}
+
+.piano__note.active {
+    background: rgb(243, 243, 93);
+    transition: all 0.3s ease;
+}
+
+.btn__note {
+    width: 150px;
+    position: absolute;
+    padding: 12px 0;
+    top: 70%;
+    border: none;
+    background-color: rgb(74, 179, 221);
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.btn__note:hover {
+    scale: 0.9;
+}
